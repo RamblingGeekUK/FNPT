@@ -22,19 +22,15 @@ const points = {
     1: {response: 10}
 }
 
-
 function getReaminingPlayers(){
-    
     playerCount -= 1;
     if (playerCount<=0)
     {
         document.getElementById("playerAdd").disabled = true;
     }
     else {
-        document.getElementById("players").innerHTML = playerCount;
+        document.getElementById("players").innerHTML = playerCount;        
     }
-
-    
     computeScore(parseInt(playerCount));
 }
 
@@ -44,26 +40,26 @@ function saveGame(){
     
     var ul = document.getElementById("gameHistory");
     var li = document.createElement("li");
-    var player = document.getElementById("player").value;
-      
-    
+    var player = document.getElementById("player").value;   
+    var lastscore = totalScore.toString();
     var parms = `${d.toLocaleDateString()} | ${player} | ${totalScore.toString()}`
 
-    li.appendChild(document.createTextNode(parms));
-    // li.appendChild(document.createTextNode(totalScore.toString()));
-    // li.appendChild(document.createTextNode(d.toLocaleDateString()));
+    // li.appendChild(document.createTextNode(parms));
+    // ul.appendChild(li);
+    console.log(player);
     
-    ul.appendChild(li);
-    
+    updateGameHistory(d.toLocaleDateString(), player, lastscore);
+
+    resetForm();
 }
 
-function reset(){
-    var clicks = 0;
-    var totalScore = 0;
-    let playerCount = 100
+function resetForm() {
+    totalScore = 0;
+    playerCount = 100
+    document.getElementById("totalScore").innerHTML = totalScore;
+    document.getElementById("players").innerHTML = playerCount.toString();
+    //document.getElementById("mainform").reset();
 }
-
-// should a history of scores be kept???
 
 function computeScore(remainingPlayers) {
         
@@ -159,8 +155,13 @@ function computeScore(remainingPlayers) {
     document.getElementById("totalScore").innerHTML = totalScore.toString();
 }
 
-
-function onClick() {
-  clicks += 1;
-  document.getElementById("clicks").innerHTML = clicks;
-};
+function updateGameHistory(pointsDate, player, totalScore) {
+    var table = document.getElementById("table");
+    var row = table.insertRow(1);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    cell1.innerHTML = player;
+    cell2.innerHTML = pointsDate;
+    cell3.innerHTML = totalScore;
+  }
