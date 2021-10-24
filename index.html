@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Ethan's FN Game Tracker</title>
+  </head>
+  <body>
+    <div class="mb-5">
+        <input name="player" class="form-control form-control-lg" type="text" placeholder="Player Name" aria-label=".form-control-lg example" maxlength="12" id="player" />
+        
+        <button type="button" class="btn btn-primary btn-lg" id="playerAdd" onClick="getReaminingPlayers()">Kill</button>
+        <button type="button" class="btn btn-danger btn-lg" id="killed" onClick="saveGame()">Killed</button>
+        <button type="button" class="btn btn-danger btn-lg" id="reset" onClick="reset()">Reset</button>
+        <p>Players remaing: <a id="players">100</id>
+        </p>
+    </div>
+    <!-- <button type="button" onClick="onClick()">Click me</button>
+    <p>Clicks: <a id="clicks">0</a></p> -->
+
+    <p>Total Score: <a id="totalScore">0</a></p>
+
+    
+    <ul id="gameHistory">
+    </ul>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
